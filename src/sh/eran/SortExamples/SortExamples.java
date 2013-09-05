@@ -21,30 +21,30 @@ public class SortExamples {
      */
     
     private static int NUMBERS_TO_SORT = 5;
-    
-    int [] randomData   =     generateRandomNumberArray(NUMBERS_TO_SORT);
-    int [] invertedData =     generateNumberArray(NUMBERS_TO_SORT,false);
-    int [] sortedData   =     generateNumberArray(NUMBERS_TO_SORT,true);    
 
     public static void main(String[] args) {
         
+        final int [] randomData   =     generateRandomNumberArray(NUMBERS_TO_SORT);
+        final int [] invertedData =     generateNumberArray(NUMBERS_TO_SORT,false);
+        final int [] sortedData   =     generateNumberArray(NUMBERS_TO_SORT,true); 
+        
         SortExamples test1 = new SortExamples();
         System.out.println("\nInsertion Sort Tests");
-        test1.insertionSortDemo();
+        test1.insertionSortDemo( randomData, invertedData, sortedData );
         
         SortExamples test2 = new SortExamples();
         System.out.println("\nSelection Sort Tests");
-        test2.selectionSortDemo();
+        test2.selectionSortDemo( randomData, invertedData, sortedData );
     }
     
     
-    public void insertionSortDemo(){
+    private void insertionSortDemo( int[] randomData, int[] invertedData, int[] sortedData ){
         insertionSort(randomData);
         insertionSort(invertedData);
         insertionSort(sortedData);
     }
 
-    public void selectionSortDemo(){
+    private void selectionSortDemo( int[] randomData, int[] invertedData, int[] sortedData ){
         selectionSort(randomData);
         selectionSort(invertedData);
         selectionSort(sortedData);
