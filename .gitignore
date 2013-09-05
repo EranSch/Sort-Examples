@@ -1,0 +1,8 @@
+build.xml
+manifest.mf
+nbproject/
+nbproject/*
+build
+build/*
+dist
+dist/*
