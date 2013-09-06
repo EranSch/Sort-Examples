@@ -1,5 +1,6 @@
 package sh.eran.SortExamples;
 
+import java.lang.reflect.Array;
 import java.util.Random;
 
 /**
@@ -20,7 +21,7 @@ public class SortExamples {
      * data set. 
      */
     
-    private static int NUMBERS_TO_SORT = 5;
+    private static int NUMBERS_TO_SORT = 200;
 
     public static void main(String[] args) {
         
@@ -28,26 +29,26 @@ public class SortExamples {
         final int [] invertedData =     generateNumberArray(NUMBERS_TO_SORT,false);
         final int [] sortedData   =     generateNumberArray(NUMBERS_TO_SORT,true); 
         
-        SortExamples test1 = new SortExamples();
-        System.out.println("\nInsertion Sort Tests");
-        test1.insertionSortDemo( randomData, invertedData, sortedData );
+        SortExamples test = new SortExamples();
         
-        SortExamples test2 = new SortExamples();
+        System.out.println("\nInsertion Sort Tests");
+        test.insertionSortDemo( randomData, invertedData, sortedData );
+        
         System.out.println("\nSelection Sort Tests");
-        test2.selectionSortDemo( randomData, invertedData, sortedData );
+        test.selectionSortDemo( randomData, invertedData, sortedData );
     }
     
     
     private void insertionSortDemo( int[] randomData, int[] invertedData, int[] sortedData ){
-        insertionSort(randomData);
-        insertionSort(invertedData);
-        insertionSort(sortedData);
+        insertionSort(randomData.clone());
+        insertionSort(invertedData.clone());
+        insertionSort(sortedData.clone());
     }
 
     private void selectionSortDemo( int[] randomData, int[] invertedData, int[] sortedData ){
-        selectionSort(randomData);
-        selectionSort(invertedData);
-        selectionSort(sortedData);
+        selectionSort(randomData.clone());
+        selectionSort(invertedData.clone());
+        selectionSort(sortedData.clone());
     }
 
     private int[] insertionSort( int[] array ) {
@@ -94,6 +95,7 @@ public class SortExamples {
                 * be moved once the criteria is met.
                 */
                p--;
+               steps++;
            }
            
            
@@ -180,6 +182,7 @@ public class SortExamples {
                  */
                 
                 if( data.get(n) > data.get(i) ) n = i;
+                steps++;
                 
             }
             
@@ -237,7 +240,7 @@ public class SortExamples {
         for( int i=0; i < array.length; i++ ){
             
             if(ascending) {
-                array[i] = i;
+                array[i] = (i + 1);
             }else{
                 array[i] = ( array.length - i );
             }
